@@ -29,7 +29,7 @@ public class CommonUI extends Constants {
 	 * 
 	 * @param browser
 	 */
-	public void openBrowser(String browser) {
+	public static void openBrowser(String browser) {
 		try {
 
 			switch (browser.toLowerCase()) {
@@ -62,7 +62,7 @@ public class CommonUI extends Constants {
 	 * 
 	 * @param url
 	 */
-	public void navigate(String url) {
+	public static void navigate(String url) {
 
 		try {
 			driver.manage().window().maximize();
@@ -189,7 +189,7 @@ public class CommonUI extends Constants {
 	 * This method quits the browser
 	 */
 
-	public void quitBrowser() {
+	public static void quitBrowser() {
 
 		try {
 

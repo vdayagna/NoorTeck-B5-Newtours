@@ -89,8 +89,8 @@ public class RegisterPage extends CommonUI{
 	public void enterconfirmpassword(String confirmpassword) {
 	enter(confirmpasswordField, confirmpassword);
 	}
-	public void entersubmitButton(String submit) {
-		enter(submitButton,submit);
+	public void clicksubmitButton() {
+		click(submitButton);
 	}
 	
 	}

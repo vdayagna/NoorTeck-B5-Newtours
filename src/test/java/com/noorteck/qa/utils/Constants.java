@@ -15,11 +15,11 @@ import com.noorteck.qa.pages.SingOnPage;
 public class Constants {
 	
 	
-	public WebDriver driver;
+	public static WebDriver driver;
 	
 	//declare class objects and common objects
-	public HomePage homeobj;
-    public RegisterPage registerPageobj;
-    public FlightsPage flightspageobj;
-    public SingOnPage signonobj;
+	public static HomePage homeobj;
+    public static RegisterPage registerPageobj;
+    public static FlightsPage flightspageobj;
+    public static SingOnPage signonobj;
 }

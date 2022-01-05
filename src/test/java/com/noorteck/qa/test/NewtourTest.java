@@ -1,5 +1,7 @@
 package com.noorteck.qa.test;
 
+import org.testng.asserts.SoftAssert;
+
 import com.noorteck.qa.pages.FlightsPage;
 import com.noorteck.qa.pages.HomePage;
 import com.noorteck.qa.pages.RegisterPage;
@@ -15,36 +17,63 @@ public class NewtourTest extends ObjInitialize {
 		
 		CommonUI commonUIobj = new CommonUI();
 		ObjInitialize obj = new ObjInitialize();
-		NewtourTest testobj = new NewtourTest();
-		HomePage homeobj = new HomePage();
-		RegisterPage registerobj = new RegisterPage();
-		FlightsPage flightsobj = new  FlightsPage();
-		SingOnPage signonobj = new SingOnPage();
+		//NewtourTest testobj = new NewtourTest();
+		//HomePage homeobj = new HomePage();
+		//RegisterPage registerobj = new RegisterPage();
+		//FlightsPage flightsobj = new  FlightsPage();
+		//SingOnPage signonobj = new SingOnPage();
 		
-		commonUIobj.openBrowser("chrome"); //Open the browser
-		commonUIobj.navigate(url); //navigate to URL
-		
-		testobj.NewtourTest();
-		commonUIobj.quitBrowser();
+		CommonUI.openBrowser("chrome"); //Open the browser
+		CommonUI.navigate(url); //navigate to URL
+		initializeClassObj();
+		NewtourTestOne();
+		NewTourTestTwo();
+		//testobj.NewtourTestOne();
+		CommonUI.quitBrowser();
 		
 	}
-	public void NewtourTest() {
+	public static void NewtourTestOne() {
+		HomePage homeobj = new HomePage();
+		SoftAssert softAssert = new SoftAssert();
+		
 		signonobj.enterUserName("jhoncena2@gmail.com");
 		signonobj.enterPassword("1234");
 		signonobj.clickSubmitButton();
 		
-		String expectedConfirmText = "Welcome to Address Book";
-		String actualTitle = "Welcome to Address Book";
+		String expectedText = "Login Successfully";
+		String actualText = "Login Successfully";
+		softAssert.assertEquals(expectedText,actualText);
 
-		if( actualTitle.equals(expectedConfirmText)) {
-			System.out.println("TITLE VERIFIED");
-		} else {
-			System.out.println("TITLE VERIFIED FAILED");
-		}
 	}
-	
+	public static void NewTourTestTwo() {
+		HomePage homeObj = new HomePage();
+		homeObj.clickRegister();
+		
+		RegisterPage registerObj = new RegisterPage();
+		registerObj.enterfirstName("John");
+		registerObj.enterlastName("Cena");
+		registerObj.enterphone("3059876543");
+		registerObj.enteremail("JohnC@gmail.com");
+		registerObj.enteraddress("123 Java Drive");
+		registerObj.entercity("Miami");
+		registerObj.enterstate("Florida");
+		registerObj.enterpostalCodeField("12365");
+		//registerObj.selectCountryDropDown();
+		registerObj.enterusername("Jcena");
+		registerObj.enterpassword("C12365");
+		registerObj.enterconfirmpassword("C12365");
+		registerObj.clicksubmitButton();
+		
+		SoftAssert softAssert = new SoftAssert();
+		
+		String expectedText = "Thank you for registering";
+		String actualText = "Thank you for registering";
+		                   
+		softAssert.assertEquals(expectedText, actualText);
+		
+		softAssert.assertAll();
 }
-
+}
 
 /**
 		--------------------------------------	INSTRUCTIONS --------------------------------------------
